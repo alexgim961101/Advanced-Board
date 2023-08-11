@@ -1,0 +1,15 @@
+version: "3.8"
+services:
+  mailplug-database:
+    container_name: mailplug-database
+    build:
+      dockerfile: Dockerfile
+      context: ./database
+    image: alexgim961101/mailplug-database
+    environment:
+      - MARIADB_DATABASE=mailplug
+      - MARIADB_ROOT_PASSWORD=${SPRING_DATASOURCE_PASSWORD}
+    volumes:
+      - ./database/config:/etc/mysql/conf.d
+    ports:
+      - "3306:3306"
