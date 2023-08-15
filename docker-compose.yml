@@ -13,3 +13,16 @@ services:
       - ./database/config:/etc/mysql/conf.d
     ports:
       - "3306:3306"
+  mailplug-app:
+    container_name: mailplug-app
+    build: .
+    depends_on:
+      - mailplug-database
+    image: alexgim961101/mailplug-app
+    environment:
+      - SPRING_DATASOURCE_USERNAME=${SPRING_DATASOURCE_USERNAME}
+      - SPRING_DATASOURCE_PASSWORD=${SPRING_DATASOURCE_PASSWORD}
+      - SPRING_PROFILES_ACTIVE=${SPRING_PROFILES_ACTIVE}
+    ports:
+      - "80:8080"
+    restart: always
