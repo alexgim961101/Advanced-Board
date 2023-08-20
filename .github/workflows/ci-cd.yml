@@ -27,9 +27,9 @@ jobs:
       - name: Docker Hub build And push
         run: |
           docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
-          docker build -t ${{ secrets.DOCKER_USERNAME }}/mailplug-app .
+          docker build -t ${{ secrets.DOCKER_USERNAME }}/${{ secrets.DOCKER_APP }} .
           docker images
-          docker push ${{ secrets.DOCKER_USERNAME }}/mailplug-app
+          docker push ${{ secrets.DOCKER_USERNAME }}/${{ secrets.DOCKER_APP }}
 
       - name: Deploy to Prod EC2 Server
         uses: appleboy/ssh-action@master
