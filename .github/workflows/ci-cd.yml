@@ -41,7 +41,7 @@ jobs:
         with:
           host: 43.202.142.100
           username: ec2-user
-          key: ${SSH_KEY}
+          key: ${{ SSH_KEY }}
           port: 22
           # docker-compose가 있는 디렉토리로 이동해야 수행됩니다.
           script: |
