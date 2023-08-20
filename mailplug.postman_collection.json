@@ -1,0 +1,168 @@
+{
+	"info": {
+		"_postman_id": "3c6391fa-5a15-47bc-bf21-7b01679d9a2b",
+		"name": "mailplug",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "19170102"
+	},
+	"item": [
+		{
+			"name": "게시물 단건 조회",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/board/1/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"board",
+						"1",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "게시글 수정",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "X-USERID",
+						"value": "alexgim",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\" : \"changeName\",\n    \"content\" : \"changeContent\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/board/1/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"board",
+						"1",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "게시글 삭제",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "X-USERID",
+						"value": "alexgim",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/api/board/1/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"board",
+						"1",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "게시글 목록 조회",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/board/1?page=1&limit=3&search=\"ti\"",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"board",
+						"1"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "limit",
+							"value": "3"
+						},
+						{
+							"key": "search",
+							"value": "\"ti\""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "게시글 생성",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-USERID",
+						"value": "alexgim",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\" : \"?asasda??\",\n    \"content\" : \"asdasfasfadgsdfsdfds\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/board/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"board",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

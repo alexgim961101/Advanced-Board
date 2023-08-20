@@ -9,6 +9,8 @@ import com.mailplug.homework.handler.ex.CustomApiException;
 import com.mailplug.homework.web.dto.*;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.redisson.api.RLock;
+import org.redisson.api.RedissonClient;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
@@ -18,12 +20,15 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.concurrent.TimeUnit;
+
 import static com.mailplug.homework.util.SystemString.*;
 
 @Service
 @RequiredArgsConstructor
 @Slf4j
 public class BoardDetailService {
+    private final RedissonClient redissonClient;
     private final BoardDetailRepository boardDetailRepository;
     private final BoardRepository boardRepository;
 
@@ -115,7 +120,15 @@ public class BoardDetailService {
 
         if(boardDetailEntity.getStatus() == BoardDetailStatus.DELETE) throw new CustomApiException(ALREADY_DELETED.isSuccess(), ALREADY_DELETED.getMessage());
 
-        boardDetailEntity.addCount();
+        RLock lock = redissonClient.getLock(String.valueOf(boardDetailId));
+        try {
+            lock.tryLock(100, 10, TimeUnit.MILLISECONDS);
+            boardDetailEntity.addCount();
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        } finally {
+            lock.unlock();
+        }
         return BoardDetailRespDto.fromEntity(boardDetailEntity);
     }
 

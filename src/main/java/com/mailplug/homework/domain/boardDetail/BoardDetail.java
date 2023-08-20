@@ -22,8 +22,7 @@ public class BoardDetail extends BaseEntity {
     @Column(nullable = false)
     @Setter
     private String content;
-    // TODO: 생성 시 조회수 0으로 초기화
-    // TODO: 동시성 고려하기
+
     private Long count;
     @Enumerated(EnumType.STRING)
     @Setter
