@@ -44,10 +44,10 @@ spring:
   sql:
     init:
       mode: always
-  data:
+  cache:
+    type: redis
     redis:
-      host: localhost
-      port: 6379
+      cache-null-values: true
 
 ---
 spring:
