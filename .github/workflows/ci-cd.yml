@@ -28,7 +28,7 @@ jobs:
         uses: docker/login-action@v2
         with:
           username: alexgim961101
-          password: ${{ secrets.DOCKER_TOKEN }}
+          password: dckr_pat_TTJ-o-UZExLLuSq43rZXAcejiz0
 
       - name: Docker Hub build And push
         run: |
