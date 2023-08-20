@@ -8,7 +8,7 @@ import lombok.*;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "boardDetail", indexes = {@Index(name = "fk_pk_index", columnList = "board_id,id")})
+@Table(name = "board_detail", indexes = {@Index(name = "fk_pk_index", columnList = "board_id,id")})
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
 public class BoardDetail extends BaseEntity {
