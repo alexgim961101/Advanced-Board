@@ -32,9 +32,9 @@ jobs:
 
       - name: Docker Hub build And push
         run: |
-          docker build -t ${{ secrets.DOCKER_USERNAME }}/${{ secrets.DOCKER_APP }} .
+          docker build -t alexgim961101/mailplug-app .
           docker images
-          docker push ${{ secrets.DOCKER_USERNAME }}/${{ secrets.DOCKER_APP }}
+          docker push alexgim961101/mailplug-app
 
       - name: Deploy to Prod EC2 Server
         uses: appleboy/ssh-action@master
