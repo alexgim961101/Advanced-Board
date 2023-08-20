@@ -41,7 +41,7 @@ jobs:
         with:
           host: 43.202.142.100
           username: ec2-user
-          key: -----BEGIN RSA PRIVATE KEY-----
+          key: |
             MIIEowIBAAKCAQEAwGSoSgM5B5aZjBn2DZbAVMvqyt0a9Bk7cDyOr7ieecny/nRP
             3xPbaiNALPBnNbWYzi25rOwButvnpOH1wJkhTRbicXVqpUxioin/eej1c2SSWmKu
             Htv8DYZ8mbTXroE9ap1hDOLNBeLroEN2Y7GeJbR5J2/vGfyXdpofVe1YQQlXj6ua
