@@ -39,10 +39,10 @@ jobs:
       - name: Deploy to Prod EC2 Server
         uses: appleboy/ssh-action@master
         with:
-          host: ${{ secrets.AWS_IP }}
-          username: ${{ secrets.AWS_USERNAME }}
-          key: ${{ secrets.SSH_KEY }}
-          port: ${{ secrets.SSH_PORT }}
+          host: 43.202.142.100
+          username: ec2-user
+          key: ${SSH_KEY}
+          port: 22
           # docker-compose가 있는 디렉토리로 이동해야 수행됩니다.
           script: |
             cd /home/ubuntu/mailplug-test/
