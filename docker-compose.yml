@@ -1,5 +1,13 @@
 version: "3.8"
 services:
+  mailplug-redis:
+    container_name: mailplug-redis
+    build:
+      dockerfile: Dockerfile
+      context: ./redis
+    image: alexgim961101/mailplug-redis
+    ports:
+      - "6379:6379"
   mailplug-database:
     container_name: mailplug-database
     build:
@@ -18,6 +26,7 @@ services:
     build: .
     depends_on:
       - mailplug-database
+      - mailplug-redis
     image: alexgim961101/mailplug-app
     environment:
       - SPRING_DATASOURCE_USERNAME=${SPRING_DATASOURCE_USERNAME}

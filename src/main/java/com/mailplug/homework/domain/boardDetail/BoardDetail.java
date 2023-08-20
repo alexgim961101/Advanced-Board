@@ -5,11 +5,11 @@ import com.mailplug.homework.domain.board.Board;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.time.LocalDateTime;
+
 @Entity
-@Table(name = "boardDetail")
-@AllArgsConstructor
+@Table(name = "boardDetail", indexes = {@Index(name = "fk_pk_index", columnList = "board_id,id")})
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-@Builder
 @Getter
 public class BoardDetail extends BaseEntity {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,8 +28,22 @@ public class BoardDetail extends BaseEntity {
     @Enumerated(EnumType.STRING)
     @Setter
     private BoardDetailStatus status;
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "board_id")
     private Board board;
+
+    @Builder
+    protected BoardDetail(Long id, String name, String username, String content, Long count, BoardDetailStatus status, Board board, LocalDateTime createdAt, LocalDateTime updatedAt) {
+        this.id = id;
+        this.name = name;
+        this.username = username;
+        this.content = content;
+        this.count = count;
+        this.status = status;
+        this.board = board;
+        super.createdAt = createdAt;
+        super.updatedAt = updatedAt;
+    }
 
     //== 생성 메서드 ==//
     public static BoardDetail createBoardDetail(String name, String username, String content) {
@@ -48,4 +62,8 @@ public class BoardDetail extends BaseEntity {
         this.board = board;
     }
 
+    //== 기타 행동 메서드 ==//
+    public void addCount(){
+        this.count += 1;
+    }
 }

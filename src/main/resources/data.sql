@@ -1,0 +1,1 @@
+INSERT INTO board (title, created_at, updated_at) VALUES ('자유 게시판', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
