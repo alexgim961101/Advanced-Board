@@ -46,9 +46,9 @@ jobs:
           # docker-compose가 있는 디렉토리로 이동해야 수행됩니다.
           script: |
             cd /home/ubuntu/mailplug-test/
-            sudo docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
+            sudo docker login -u alexgim961101 -p dckr_pat_TTJ-o-UZExLLuSq43rZXAcejiz0
             sudo docker rm -f $(sudo docker ps -qa)
-            sudo docker pull ${{ secrets.DOCKER_USERNAME }}/${{ secrets.DOCKER_APP }}
-            sudo docker-compose up -d
+            sudo docker pull alexgim961101/mailplug-app
+            sudo docker-compose up
             sudo docker image prune -f
 
