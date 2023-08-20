@@ -173,7 +173,7 @@ public Long deleteBoardDetail(Long boardId, Long boardDetailId, String userId) {
 ### 1). 도커 데스크탑(도커 + 도커 컴포즈) 설치
 ### 2). mailplug-test 바로 하위 경로에서 프로젝트 빌드 (gradlew파일과 동일한 위치)
 ```bash
-./gradlew build
+./gradlew clean build -x test
 ```
 ### 아래의 명령어 실행
 ```bash
