@@ -170,6 +170,7 @@ public Long deleteBoardDetail(Long boardId, Long boardDetailId, String userId) {
 - 이미 지워진 게시물 삭제시 예외 발생
 - 완전 삭제가 아니라 상태만 변경
 ## 빌드 & 실행 방법
+### 0). JDK 17 설치
 ### 1). 도커 데스크탑(도커 + 도커 컴포즈) 설치
 ### 2). mailplug-test 바로 하위 경로에서 프로젝트 빌드 (gradlew파일과 동일한 위치)
 ```bash
