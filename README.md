@@ -172,7 +172,7 @@ public Long deleteBoardDetail(Long boardId, Long boardDetailId, String userId) {
 ## 빌드 & 실행 방법
 ### 0). JDK 17 설치
 ### 1). 도커 데스크탑(도커 + 도커 컴포즈) 설치
-### 2). mailplug-test 바로 하위 경로에서 프로젝트 빌드 (gradlew파일과 동일한 위치)
+### 2). 프로젝트 루트 바로 하위 경로에서 프로젝트 빌드 (gradlew파일과 동일한 위치)
 ```bash
 ./gradlew clean build -x test
 ```
@@ -185,7 +185,7 @@ docker-compose up
 ### - 공통 에러 처리를 위한 핸들러 및 custom 에러
 ### - 성능 측정을 위한 @Timer
 ### - 테스트를 쉽게 하기 위한 DummyObject 클래스
-## API 예시 (자세한 내용은 mailplug_postman_collection.json 파일 참고)
+## API 예시
 ### http://localhost:8080 <-> http://43.202.142.100:80 사용 가능 (aws 주소는 비용문제 때문에 언제든 멈출 수 있음)
 ### 1). 게시글 생성 GET http://localhost:8080/api/board/{boardId}
 #### URL 예시 : GET  http://localhost:8080/api/board/1
