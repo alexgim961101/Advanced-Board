@@ -105,7 +105,7 @@ public BoardDetailRespDto readOneBoardDetail(Long boardId, Long boardDetailId) {
 index
 ```java
 @Entity
-@Table(name = "board_detail", indexes = {@Index(name = "fk_pk_index", columnList = "name")})
+@Table(name = "board_detail", indexes = {@Index(name = "fk_pk_index", columnList = "board_id, id")})
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
 public class BoardDetail extends BaseEntity {
